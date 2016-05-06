@@ -38,7 +38,7 @@ public class OperationView extends JFrameView
     private JPanel layout = new JPanel();
     public JOptionPane warning = new JOptionPane();
 
-    public OperationView(AccountModel model, OperationController controller, Account account)
+    public OperationView(AccountModel model, OperationController controller, Account account, String type)
     {
         super(model,controller);
         NumberFormat format = NumberFormat.getNumberInstance();
@@ -46,7 +46,7 @@ public class OperationView extends JFrameView
         format.setMaximumFractionDigits(2);
 
         this.account = account;
-        layout.setLayout(new GridLayout(4, 2, 2, 2));
+        layout.setLayout(new GridLayout(10, 2, 2, 2));
 
         amount.setEditable(false);
         operations.setEditable(false);
@@ -76,7 +76,7 @@ public class OperationView extends JFrameView
         stopAgent.addActionListener(handler);
         dismissAgent.addActionListener(handler);
 
-        buttonPanel.setLayout(new GridLayout(4, 1, 2, 2));
+        buttonPanel.setLayout(new GridLayout(6, 2, 2, 2));
         this.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
         buttonPanel.add(stopAgent, null);
         buttonPanel.add(dismissAgent, null);

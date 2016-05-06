@@ -19,24 +19,26 @@ public class OperationController extends AbstractController
     public String currency;
     public double amount;
 
-    public OperationController(AccountModel model, Account account, String currency)
+    public OperationController(AccountModel model, Account account, String currency, String amt)
     {
         setModel(model);
-        setView(new OperationView((AccountModel)getModel(), this, account));
-        ((JFrameView)getView()).setVisible(true);
 
         this.currency = currency;
 
         if(currency.equals("START_D"))
         {
-            String amt = ((AgentView)getView()).amount.getText();
+            setView(new OperationView((AccountModel)getModel(), this, account, "DEPOSIT"));
+            ((JFrameView)getView()).setVisible(true);
+            System.out.println("Account: " + account.name);
+
             double opFunds = Double.parseDouble(amt);
 
-            while(account.funds >= 0){
-
-                account.funds -= opFunds;
-                //sleep(1000);
-            }
+            ((OperationView)getView()).amount.setText(amt);
+//            while(account.funds >= 0){
+//
+//                account.funds -= opFunds;
+//                //sleep(1000);
+//            }
 //            amount = account.funds;
 //            amount = Math.round (amount * 100.00) / 100.00;
 //            ((OperationView)getView()).funds.setValue(amount);
@@ -44,15 +46,20 @@ public class OperationController extends AbstractController
         }
         else if(currency.equals("START_W"))
         {
-
-            String amt = ((AgentView)getView()).amount.getText();
-            double opFunds = Double.parseDouble(amt);
-
-            while(account.funds > 0){
-
-                account.funds += opFunds;
-                //sleep(1000);
-            }
+//            setView(new OperationView((AccountModel)getModel(), this, account, "WITHDRAW"));
+//            ((JFrameView)getView()).setVisible(true);
+//            //System.out.println("Amt: " + amt);
+//            System.out.println("Account: " + account.name);
+//            String amt = ((AgentView)getView()).amount.getText();
+//            double opFunds = Double.parseDouble(amt);
+//
+//
+//            ((OperationView)getView()).amount.setText(amt);
+//            while(account.funds > 0){
+//
+//                account.funds += opFunds;
+//                //sleep(1000);
+//            }
         }
     }
 

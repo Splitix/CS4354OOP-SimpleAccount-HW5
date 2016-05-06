@@ -22,17 +22,18 @@ public class AgentController extends AbstractController
     public AgentController(AccountModel model, Account account, String currency)
     {
         setModel(model);
-        setView(new AgentView((AccountModel)getModel(), this, account));
+        setView(new AgentView((AccountModel)getModel(), this, account, currency));
         ((JFrameView)getView()).setVisible(true);
 
+        accountHolder = account;
         this.currency = currency;
 
         if(currency.equals("USD"))
         {
             amount = account.funds;
             amount = Math.round (amount * 100.00) / 100.00;
-            ((AdjustView)getView()).funds.setValue(amount);
-            ((AdjustView)getView()).setTitle(account.ID + account.name + "  USD");
+            ((AgentView)getView()).funds.setValue(amount);
+            ((AgentView)getView()).setTitle(account.ID + account.name + "  USD");
         }
         else if(currency.equals("EURO"))
         {
@@ -61,12 +62,15 @@ public class AgentController extends AbstractController
         }
         else if(option.equals(AgentView.START_DEPO))
         {
-            new OperationController((AccountModel)getModel(), accountHolder, "START_D");
+            String amt = ((AgentView)getView()).amount.getText(); //***
+            //((AgentView).getView()).setTitle();
+            new OperationController((AccountModel)getModel(), accountHolder, "START_D", amt);
 
         }
         else if(option.equals(AgentView.START_WITH))
         {
-            new OperationController((AccountModel)getModel(), accountHolder, "START_W");
+            String amt = ((AgentView)getView()).amount.getText(); //***
+            new OperationController((AccountModel)getModel(), accountHolder, "START_W", amt);
         }
     }
 }

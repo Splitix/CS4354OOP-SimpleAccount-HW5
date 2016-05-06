@@ -19,8 +19,8 @@ import java.text.NumberFormat;
 public class AgentView extends JFrameView
 {
     public static final String EXIT = "Exit";
-    public static final String START_DEPO = "Start Deposit Agent";
-    public static final String START_WITH = "Start Withdraw Agent";
+    public static String START_DEPO = "Start Deposit Agent";
+    public static String START_WITH = "Start Withdraw Agent";
 
     private JLabel enterAgentID = new JLabel("Agent ID: ");
     private JLabel enterAmount = new JLabel("Amount in $: ");
@@ -34,7 +34,7 @@ public class AgentView extends JFrameView
     private JPanel layout = new JPanel();
     public JOptionPane warning = new JOptionPane();
 
-    public AgentView(AccountModel model, AgentController controller, Account account)
+    public AgentView(AccountModel model, AgentController controller, Account account, String currency)
     {
         super(model,controller);
 
@@ -50,7 +50,7 @@ public class AgentView extends JFrameView
         funds.setValue(0);
         funds.setEditable(false);
 
-        amount.setText("0");
+        amount.setText("500");
         layout.add(enterAgentID, BorderLayout.WEST);
         layout.add(agentID, BorderLayout.WEST);
         layout.add(enterAmount, BorderLayout.EAST);
@@ -61,16 +61,26 @@ public class AgentView extends JFrameView
 
         JPanel buttonPanel = new JPanel();
         Handler handler = new Handler();
+        JButton start;
 
-        JButton startDep = new JButton(START_DEPO);
+        if(currency.equals("DEPOSIT_AGENT"))
+        {
+            setTitle(account.name + " / " + "Deposit Agent");
+            start = new JButton(START_DEPO);
+        }
+        else
+        {
+            start = new JButton(START_WITH);
+        }
+
         JButton exit = new JButton(EXIT);
 
-        startDep.addActionListener(handler);
+        start.addActionListener(handler);
         exit.addActionListener(handler);
 
         buttonPanel.setLayout(new GridLayout(4, 1, 2, 2));
         this.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
-        buttonPanel.add(startDep, null);
+        buttonPanel.add(start, null);
         buttonPanel.add(exit, null);
         pack();
     }

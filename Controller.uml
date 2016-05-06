@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Controller</OriginalElement>
+  <nodes>
+    <node x="207.0" y="379.0">Controller.MainController</node>
+    <node x="0.0" y="412.0">Controller.FundsController</node>
+    <node x="136.25" y="167.0">Controller.AbstractController</node>
+    <node x="119.75" y="0.0">Controller.Controller</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Controller.AbstractController" target="Controller.Controller">
+      <point x="0.0" y="-81.0" />
+      <point x="0.0" y="58.5" />
+    </edge>
+    <edge source="Controller.FundsController" target="Controller.AbstractController">
+      <point x="0.0" y="-48.0" />
+      <point x="93.5" y="354.0" />
+      <point x="189.5" y="354.0" />
+      <point x="-53.25" y="81.0" />
+    </edge>
+    <edge source="Controller.MainController" target="Controller.AbstractController">
+      <point x="0.0" y="-81.0" />
+      <point x="392.0" y="354.0" />
+      <point x="296.0" y="354.0" />
+      <point x="53.25" y="81.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="139.0" y="93.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

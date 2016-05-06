@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>View</OriginalElement>
+  <nodes>
+    <node x="242.75" y="0.0">View.View</node>
+    <node x="406.0" y="434.0">View.MainView</node>
+    <node x="0.0" y="401.0">View.AdjustView</node>
+    <node x="251.25" y="167.0">View.JFrameView</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="View.JFrameView" target="View.View">
+      <point x="0.0" y="-92.0" />
+      <point x="0.0" y="58.5" />
+    </edge>
+    <edge source="View.AdjustView" target="View.JFrameView">
+      <point x="0.0" y="-158.0" />
+      <point x="193.0" y="376.0" />
+      <point x="314.5" y="376.0" />
+      <point x="-63.25" y="92.0" />
+    </edge>
+    <edge source="View.MainView" target="View.JFrameView">
+      <point x="0.0" y="-125.0" />
+      <point x="562.5" y="376.0" />
+      <point x="441.0" y="376.0" />
+      <point x="63.25" y="92.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="106.5" y="93.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

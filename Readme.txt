@@ -1,0 +1,1 @@
+Readme:To start the program you need to run the file MainView.java which is found in the src --> view--> MainView.java.Once started the user can select account with the drop down menu and adjust the money using the edit in currency buttons. 

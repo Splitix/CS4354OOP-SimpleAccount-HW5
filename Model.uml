@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Model</OriginalElement>
+  <nodes>
+    <node x="37.5" y="0.0">Model.Model</node>
+    <node x="52.0" y="101.0">Model.AbstractModel</node>
+    <node x="0.0" y="269.0">Model.AccountModel</node>
+    <node x="0.0" y="432.0">Model.Account</node>
+    <node x="375.0" y="0.0">Model.ModelEvent</node>
+    <node x="172.0" y="432.0">Model.ModelListener</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Model.AccountModel" target="Model.AbstractModel">
+      <point x="0.0" y="-59.0" />
+      <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="Model.AbstractModel" target="Model.Model">
+      <point x="0.0" y="-59.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="144.0" y="130.5" />
+  <SelectedNodes>
+    <node>Model.Model</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

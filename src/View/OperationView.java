@@ -34,6 +34,7 @@ public class OperationView extends JFrameView
     public JTextField operationsComplete = new JTextField(25);
     public Account account;
 
+
     private JPanel layout = new JPanel();
     public JOptionPane warning = new JOptionPane();
 

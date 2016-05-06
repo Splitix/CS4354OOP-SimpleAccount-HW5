@@ -23,6 +23,8 @@ public class MainView extends JFrameView {
     public static final String E_USD = "Edit in USD";
     public static final String E_EURO = "Edit in Euro";
     public static final String E_YUAN = "Edit in Yuan";
+    public static final String DEP_AGENT = "Create Deposit Agent";
+    public static final String WITH_AGENT = "Create Withdraw Agent";
     public static final String SAVE = "Save";
     public static final String EXIT = "Exit";
     public static String fileLoc = "src/users.txt";;
@@ -47,7 +49,7 @@ public class MainView extends JFrameView {
         dropDownUsers.setSelectedIndex(0);
         controller.accountHolder = userAccounts.get(0);
         this.getContentPane().add(dropDownUsers, BorderLayout.NORTH);
-
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
         JPanel buttonPanel = new JPanel();
@@ -58,6 +60,8 @@ public class MainView extends JFrameView {
         JButton editUSD = new JButton(E_USD);
         JButton editEURO = new JButton(E_EURO);
         JButton editYUAN = new JButton(E_YUAN);
+        JButton depAgent = new JButton(DEP_AGENT);
+        JButton withAgent = new JButton(WITH_AGENT);
         JButton save = new JButton(SAVE);
         JButton exit = new JButton(EXIT);
 
@@ -65,15 +69,19 @@ public class MainView extends JFrameView {
         editUSD.addActionListener(handler);
         editEURO.addActionListener(handler);
         editYUAN.addActionListener(handler);
+        depAgent.addActionListener(handler);
+        withAgent.addActionListener(handler);
         save.addActionListener(handler);
         exit.addActionListener(handler);
 
 
-        buttonPanel.setLayout(new GridLayout(6, 1, 0, 10));
+        buttonPanel.setLayout(new GridLayout(8, 1, 0, 10));
         this.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
         buttonPanel.add(editUSD, null);
         buttonPanel.add(editEURO, null);
         buttonPanel.add(editYUAN, null);
+        buttonPanel.add(depAgent, null);
+        buttonPanel.add(withAgent, null);
         buttonPanel.add(save, null);
         buttonPanel.add(exit, null);
 

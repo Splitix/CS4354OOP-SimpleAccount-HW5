@@ -5,6 +5,7 @@ import Model.AccountModel;
 import View.JFrameView;
 import View.MainView;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -42,6 +43,15 @@ public class MainController extends AbstractController {
         {
             new FundsController((AccountModel)getModel(), accountHolder, "YUAN");
         }
+        else if(option.equals(MainView.DEP_AGENT))
+        {
+            //Code for Deposit agent
+            new AgentController((AccountModel)getModel(), accountHolder, "USD");
+        }
+        else if(option.equals(MainView.WITH_AGENT))
+        {
+            //Code for deposit agent
+        }
         else if(option.equals(MainView.SAVE))
         {
             writeToFile(fileName);
@@ -49,7 +59,8 @@ public class MainController extends AbstractController {
         else if(option.equals(MainView.EXIT))
         {
             writeToFile(fileName);
-            ((JFrameView)getView()).dispose();
+            System.exit(0);
+
         }
 
     }

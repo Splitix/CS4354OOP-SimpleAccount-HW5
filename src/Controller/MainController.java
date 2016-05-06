@@ -51,6 +51,7 @@ public class MainController extends AbstractController {
         else if(option.equals(MainView.WITH_AGENT))
         {
             //Code for deposit agent
+            new AgentController((AccountModel)getModel(), accountHolder, "USD");
         }
         else if(option.equals(MainView.SAVE))
         {

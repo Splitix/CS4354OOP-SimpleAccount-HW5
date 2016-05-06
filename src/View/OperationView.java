@@ -2,6 +2,7 @@ package View;
 
 import Controller.AgentController;
 import Controller.FundsController;
+import Controller.OperationController;
 import Model.Account;
 import Model.AccountModel;
 import Model.ModelEvent;
@@ -18,60 +19,66 @@ import java.text.NumberFormat;
  */
 public class OperationView extends JFrameView
 {
-    public static final String EXIT = "Exit";
-    public static final String START_DEPO = "Start Deposit Agent";
-    public static final String START_WITH = "Start Withdraw Agent";
+    public static final String STOP = "Stop Agent";
+    public static final String DISMISS = "Dismiss Agent";
 
-    private JLabel enterAgentID = new JLabel("Agent ID: ");
-    private JLabel enterAmount = new JLabel("Amount in $: ");
-    private JLabel enterOperations = new JLabel("Operations per second: ");
-    public JTextField agentID = new JTextField(25);
+    private JLabel amountLabel = new JLabel("Amount in $: ");
+    private JLabel operationsLabel = new JLabel("Operations per second: ");
+    private JLabel stateLabel = new JLabel("State");
+    private JLabel amountTransferLabel = new JLabel("Amount in $ transferred");
+    private JLabel opCompleteLabel = new JLabel("Operations completed");
     public JTextField amount = new JTextField(25);
     public JTextField operations = new JTextField(25);
-    public JFormattedTextField funds;
+    public JTextField state = new JTextField(25);
+    public JTextField amountTransferred = new JTextField(25);
+    public JTextField operationsComplete = new JTextField(25);
     public Account account;
 
     private JPanel layout = new JPanel();
     public JOptionPane warning = new JOptionPane();
 
-    public OperationView(AccountModel model, AgentController controller, Account account)
+    public OperationView(AccountModel model, OperationController controller, Account account)
     {
         super(model,controller);
-
         NumberFormat format = NumberFormat.getNumberInstance();
         format.setMinimumFractionDigits(2);
         format.setMaximumFractionDigits(2);
 
-        funds = new JFormattedTextField(format);
-
         this.account = account;
         layout.setLayout(new GridLayout(4, 2, 2, 2));
 
-        funds.setValue(0);
-        funds.setEditable(false);
+        amount.setEditable(false);
+        operations.setEditable(false);
+        state.setEditable(false);
+        amountTransferred.setEditable(false);
+        operationsComplete.setEditable(false);
 
-        amount.setText("0");
-        layout.add(enterAgentID, BorderLayout.WEST);
-        layout.add(agentID, BorderLayout.WEST);
-        layout.add(enterAmount, BorderLayout.EAST);
-        layout.add(amount, BorderLayout.EAST);
-        layout.add(enterOperations, BorderLayout.WEST);
-        layout.add(operations, BorderLayout.WEST);
+        layout.add(amountLabel, null);
+        layout.add(amount, null);
+        layout.add(operationsLabel, null);
+        layout.add(operations, null);
+        layout.add(stateLabel, null);
+        layout.add(state, null);
+        layout.add(amountTransferLabel, null);
+        layout.add(amountTransferred, null);
+        layout.add(opCompleteLabel, null);
+        layout.add(operationsComplete, null);
+
         this.getContentPane().add(layout, BorderLayout.NORTH);
 
         JPanel buttonPanel = new JPanel();
         Handler handler = new Handler();
 
-        JButton startDep = new JButton(START_DEPO);
-        JButton exit = new JButton(EXIT);
+        JButton stopAgent = new JButton(STOP);
+        JButton dismissAgent = new JButton(DISMISS);
 
-        startDep.addActionListener(handler);
-        exit.addActionListener(handler);
+        stopAgent.addActionListener(handler);
+        dismissAgent.addActionListener(handler);
 
         buttonPanel.setLayout(new GridLayout(4, 1, 2, 2));
         this.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
-        buttonPanel.add(startDep, null);
-        buttonPanel.add(exit, null);
+        buttonPanel.add(stopAgent, null);
+        buttonPanel.add(dismissAgent, null);
         pack();
     }
 
@@ -84,7 +91,7 @@ public class OperationView extends JFrameView
     {
         public void actionPerformed(ActionEvent e)
         {
-            ((AgentController)getController()).operation(e.getActionCommand());
+            ((OperationController)getController()).operation(e.getActionCommand());
         }
     }
 }

@@ -7,12 +7,15 @@ import View.AgentView;
 import View.JFrameView;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 /**
  * Created by Splitix on 5/6/16.
  */
 public class AgentController extends AbstractController
 {
+    public static ArrayList<Account> userAccounts = new ArrayList<>();
+    public static Account accountHolder;
     public String currency;
     public double amount;
 
@@ -58,26 +61,12 @@ public class AgentController extends AbstractController
         }
         else if(option.equals(AgentView.START_DEPO))
         {
-            String deposit = ((AdjustView)getView()).amount.getText();
+            new OperationController((AccountModel)getModel(), accountHolder, "START_D");
 
         }
-        else if(option.equals(AdjustView.WITHDRAW))
+        else if(option.equals(AgentView.START_WITH))
         {
-            try
-            {
-                String withdraw = ((AdjustView)getView()).amount.getText();
-                Double toWithdraw = Double.valueOf(withdraw);
-                ((AccountModel)getModel()).withdraw(toWithdraw, currency, ((AdjustView)getView()).account);
-                ((AdjustView)getView()).amount.setText("0");
-            }
-            catch(Exception error)
-            {
-                ((AdjustView)getView()).warning.showMessageDialog((AdjustView)getView(),
-                        "You can only enter numbers.",
-                        "A number was not entered.",
-                        JOptionPane.WARNING_MESSAGE);
-                ((AdjustView)getView()).amount.setText("0");
-            }
+            new OperationController((AccountModel)getModel(), accountHolder, "START_W");
         }
     }
 }

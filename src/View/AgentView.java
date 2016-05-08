@@ -1,7 +1,6 @@
 package View;
 
 import Controller.AgentController;
-import Controller.FundsController;
 import Model.Account;
 import Model.AccountModel;
 import Model.ModelEvent;
@@ -13,11 +12,11 @@ import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 
 /**
- * Created by Joshua Galindo on 4/14/16.
- * Displays the view for the agent. The Agent has permission to deposit/withdraw.
+ * Created by Splitix on 5/6/16.
  */
 public class AgentView extends JFrameView
 {
+
     public static final String EXIT = "Exit";
     public static String START_DEPO = "Start Deposit Agent";
     public static String START_WITH = "Start Withdraw Agent";
@@ -34,8 +33,12 @@ public class AgentView extends JFrameView
     private JPanel layout = new JPanel();
     public JOptionPane warning = new JOptionPane();
 
-    public AgentView(AccountModel model, AgentController controller, Account account, String currency)
+    public int option;
+
+
+    public AgentView(AccountModel model, AgentController controller, int option, Account account, int buttonOption)
     {
+
         super(model,controller);
 
         NumberFormat format = NumberFormat.getNumberInstance();
@@ -50,7 +53,8 @@ public class AgentView extends JFrameView
         funds.setValue(0);
         funds.setEditable(false);
 
-        amount.setText("500");
+        amount.setText("0");
+        operations.setText("1.0");
         layout.add(enterAgentID, BorderLayout.WEST);
         layout.add(agentID, BorderLayout.WEST);
         layout.add(enterAmount, BorderLayout.EAST);
@@ -63,9 +67,8 @@ public class AgentView extends JFrameView
         Handler handler = new Handler();
         JButton start;
 
-        if(currency.equals("DEPOSIT_AGENT"))
+        if(buttonOption == 0)
         {
-            setTitle(account.name + " / " + "Deposit Agent");
             start = new JButton(START_DEPO);
         }
         else
@@ -83,11 +86,12 @@ public class AgentView extends JFrameView
         buttonPanel.add(start, null);
         buttonPanel.add(exit, null);
         pack();
+
     }
 
     public void modelChanged(ModelEvent event)
     {
-        //model changed function
+        String msg = event.getAccount() + "";
     }
 
     class Handler implements ActionListener

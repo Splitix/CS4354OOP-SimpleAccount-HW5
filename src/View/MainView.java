@@ -23,10 +23,10 @@ public class MainView extends JFrameView {
     public static final String E_USD = "Edit in USD";
     public static final String E_EURO = "Edit in Euro";
     public static final String E_YUAN = "Edit in Yuan";
-    public static final String DEP_AGENT = "Create Deposit Agent";
-    public static final String WITH_AGENT = "Create Withdraw Agent";
     public static final String SAVE = "Save";
     public static final String EXIT = "Exit";
+    public static final String DEP_AGENT = "Create deposit agent";
+    public static final String WITH_AGENT = "Create withdraw agent";
     public static String fileLoc = "src/users.txt";;
 
     public static ArrayList<Account> userAccounts = new ArrayList<>();
@@ -49,7 +49,7 @@ public class MainView extends JFrameView {
         dropDownUsers.setSelectedIndex(0);
         controller.accountHolder = userAccounts.get(0);
         this.getContentPane().add(dropDownUsers, BorderLayout.NORTH);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
 
         JPanel buttonPanel = new JPanel();
@@ -66,13 +66,14 @@ public class MainView extends JFrameView {
         JButton exit = new JButton(EXIT);
 
 
+
         editUSD.addActionListener(handler);
         editEURO.addActionListener(handler);
         editYUAN.addActionListener(handler);
-        depAgent.addActionListener(handler);
-        withAgent.addActionListener(handler);
         save.addActionListener(handler);
         exit.addActionListener(handler);
+        depAgent.addActionListener(handler);
+        withAgent.addActionListener(handler);
 
 
         buttonPanel.setLayout(new GridLayout(8, 1, 0, 10));
@@ -84,6 +85,7 @@ public class MainView extends JFrameView {
         buttonPanel.add(withAgent, null);
         buttonPanel.add(save, null);
         buttonPanel.add(exit, null);
+
 
 
         pack();

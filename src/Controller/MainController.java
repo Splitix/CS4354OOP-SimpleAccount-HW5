@@ -2,10 +2,10 @@ package Controller;
 
 import Model.Account;
 import Model.AccountModel;
+import Model.AgentModel;
 import View.JFrameView;
 import View.MainView;
 
-import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -45,14 +45,11 @@ public class MainController extends AbstractController {
         }
         else if(option.equals(MainView.DEP_AGENT))
         {
-            //Code for Deposit agent
-            System.out.println("Account: " + accountHolder.name);
-            new AgentController((AccountModel)getModel(), accountHolder, "DEPOSIT_AGENT");
+            new AgentController((AccountModel)getModel(), accountHolder, 0);
         }
         else if(option.equals(MainView.WITH_AGENT))
         {
-            //Code for deposit agent
-            new AgentController((AccountModel)getModel(), accountHolder, "WITHDRAW_AGENT");
+            new AgentController((AccountModel)getModel(), accountHolder, 1);
         }
         else if(option.equals(MainView.SAVE))
         {
@@ -62,7 +59,6 @@ public class MainController extends AbstractController {
         {
             writeToFile(fileName);
             System.exit(0);
-
         }
 
     }

@@ -56,6 +56,7 @@ public class OperationView extends JFrameView
 
         this.account = account;
         layout.setLayout(new GridLayout(10, 2, 2, 2));
+        //this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         amount.setEditable(false);
         operations.setEditable(false);

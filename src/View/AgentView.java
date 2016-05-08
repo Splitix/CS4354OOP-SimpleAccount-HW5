@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
+import java.util.Random;
 
 /**
  * Created by Splitix on 5/6/16.
@@ -34,6 +35,7 @@ public class AgentView extends JFrameView
     public JOptionPane warning = new JOptionPane();
 
     public int option;
+    Random value;
 
 
     public AgentView(AccountModel model, AgentController controller, int option, Account account, int buttonOption)
@@ -50,6 +52,8 @@ public class AgentView extends JFrameView
         this.account = account;
         layout.setLayout(new GridLayout(4, 2, 2, 2));
 
+        value = new Random();
+        agentID.setText(Integer.toString(value.nextInt(100000))); //create random AgentID to auto populate
         funds.setValue(0);
         funds.setEditable(false);
 

@@ -49,6 +49,7 @@ public class MainView extends JFrameView {
         dropDownUsers.setSelectedIndex(0);
         controller.accountHolder = userAccounts.get(0);
         this.getContentPane().add(dropDownUsers, BorderLayout.NORTH);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 
 

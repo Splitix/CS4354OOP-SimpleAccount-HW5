@@ -34,7 +34,7 @@ public class AgentView extends JFrameView
     private JPanel layout = new JPanel();
     public JOptionPane warning = new JOptionPane();
 
-    public int option;
+    //public int option;
     Random value;
 
 

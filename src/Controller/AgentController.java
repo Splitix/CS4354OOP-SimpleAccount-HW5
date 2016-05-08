@@ -43,7 +43,7 @@ public class AgentController extends AbstractController
                 int AgentID = Integer.parseInt(((AgentView)getView()).agentID.getText());
                 double Amount = Double.parseDouble( ((AgentView)getView()).amount.getText());
                 double ops = Double.parseDouble(((AgentView)getView()).operations.getText());
-                int type = ((AgentView)getView()).option;
+                int type = 0;
                 window = ((AccountModel)getModel()).AgentWindow(AgentID, Amount, ops, type, account);
                 if(window != null)
                 {
@@ -77,7 +77,7 @@ public class AgentController extends AbstractController
                 int AgentID = Integer.parseInt(((AgentView)getView()).agentID.getText());
                 double Amount = Double.parseDouble( ((AgentView)getView()).amount.getText());
                 double ops = Double.parseDouble(((AgentView)getView()).operations.getText());
-                int type = ((AgentView)getView()).option;
+                int type = 1;
                 window = ((AccountModel)getModel()).AgentWindow(AgentID, Amount, ops, type, account);
                 if(window != null)
                 {
@@ -91,7 +91,7 @@ public class AgentController extends AbstractController
                 {
                     ((AgentView)getView()).warning.showMessageDialog((AgentView)getView(),
                             "Agent already exists!",
-                            "Agent exists",
+                            "Agent",
                             JOptionPane.WARNING_MESSAGE);
                 }
             }
